@@ -84,6 +84,16 @@ public class Student {
             }
         }
     }
+    public boolean deleteGrade(String gradeName) {
+        for (int i = 0; i < grades.size(); i++) {
+            if (grades.get(i).getName().equalsIgnoreCase(gradeName)) {
+                grades.remove(i);
+                return true; // successfully deleted
+            }
+        }
+        return false; // not found
+    }
+
 
     public void addTask(Task task) {
         tasks.add(task);
@@ -95,6 +105,15 @@ public class Student {
                 break;
             }
         }
+    }
+    public boolean deleteTask(String taskTitle) {
+        for (int i = 0; i < tasks.size(); i++) {
+            if (tasks.get(i).getDescription().equalsIgnoreCase(taskTitle)) {
+                tasks.remove(i);
+                return true;
+            }
+        }
+        return false;
     }
     //Sort tasks
 
