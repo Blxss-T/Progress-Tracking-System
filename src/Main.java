@@ -5,18 +5,15 @@ public class Main {
     public static void main(String[] args) {
 //        Student student1= new Student();
 //        public Student ()
-        Grade grade1 = new Grade(("Mathematics"),"The study where calculus comes to life",76);
-        Grade grade2 = new Grade("Phyics","The study where newton's laws comes to life",86);
-        Grade grade3 = new Grade("Matics","The study where calculus comes to life",76);
+        Grade grade1 = new Grade();
+        grade1.setName("Maths");
+        grade1.setScore(10);
+        grade1.setDescription("Maths");
 
         Grade [] grades;
-        Student student1 = new Student(
+        Student student1 = new Student();
+        student1.setName("John");
+        student1.setGrade(78);
 
-        );
-
-
-
-
-
-        }
+    }
     }

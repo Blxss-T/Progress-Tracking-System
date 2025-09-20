@@ -1,23 +1,28 @@
 package Dashboard.model;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class Student {
     private String name;
     private String email;
     private LocalDate dob;
-    private int grade;
+    private ArrayList<Grade> grades;
+    private ArrayList<Task> tasks;
     private int ID;
-    private String task;
-    public Student(){};
 
-    public Student(String name, String email, LocalDate dob, int grades, int ID, String task) {
+
+    public Student() {}
+
+    public Student(String name, String email, LocalDate dob, Grade[] grades, int ID,Task [] tasks) {
         this.name = name;
         this.email = email;
         this.dob = dob;
-        this.grade = grade;
+        this.grades = new ArrayList<>();
+        this.tasks = new ArrayList<>();
         this.ID = ID;
-        this.task = task;
     }
 
     public String getName() {
@@ -25,7 +30,6 @@ public class Student {
     }
 
     public void setName(String name) {
-//        if(email)
         this.name = name;
     }
 
@@ -45,12 +49,12 @@ public class Student {
         this.dob = dob;
     }
 
-    public int getGrade() {
-        return grade;
+    public ArrayList<Grade> getGrades() {
+        return grades;
     }
 
-    public void setGrade(int grade) {
-        this.grade = grade;
+    public void setGrades(ArrayList<Grade> grades) {
+        this.grades = grades;
     }
 
     public int getID() {
@@ -61,14 +65,61 @@ public class Student {
         this.ID = ID;
     }
 
-    public getTask() {
-        return task;
+    public ArrayList<Task> getTasks() {
+        return tasks;
     }
 
-    public void setTask(String task) {
-        this.task = task;
+    public void setTasks(ArrayList<Task> tasks) {
+        this.tasks = tasks;
     }
+    //Functions to add and to update the tasks and the grades
+    public void addGrade(Grade grade) {
+        grades.add(grade);
+    }
+    public void updateGrade(String gradeName, int newScore) {
+        for (Grade g : grades) {
+            if (g.getName().equalsIgnoreCase(gradeName)) {
+                g.setScore(newScore);
+                break;
+            }
+        }
+    }
+
+    public void addTask(Task task) {
+        tasks.add(task);
+    }
+    public void updateTask(String taskTitle, boolean completed) {
+        for (Task t : tasks) {
+            if (t.getDescription().equalsIgnoreCase(taskTitle)) {
+                t.setCompleted(completed);
+                break;
+            }
+        }
+    }
+    //Sort tasks
+
+    public void sortTasksByDeadline() {
+        Collections.sort(tasks, Comparator.comparing(Task::getDeadline));
+    }
+    //Filter the completed and the pending tasks
+    public ArrayList<Task> getCompletedTasks() {
+        ArrayList<Task> completed = new ArrayList<>();
+        for (Task t : tasks) {
+            if (t.isCompleted()) {
+                completed.add(t);
+            }
+        }
+        return completed;
+    }
+
+    public ArrayList<Task> getPendingTasks() {
+        ArrayList<Task> pending = new ArrayList<>();
+        for (Task t : tasks) {
+            if (!t.isCompleted()) {
+                pending.add(t);
+            }
+        }
+        return pending;
+    }
+
 }
-
-
-
