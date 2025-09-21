@@ -1,19 +1,33 @@
-import Dashboard.model.Grade;
-import Dashboard.model.Student;
+package Dashboard;
+
+import Dashboard.model.*;
+import Dashboard.storage.FileStorage;
+
+import java.time.LocalDate;
+import java.util.Arrays;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-//        Student student1= new Student();
-//        public Student ()
-        Grade grade1 = new Grade();
-        grade1.setName("Maths");
-        grade1.setScore(10);
-        grade1.setDescription("Maths");
+        // Create sample Task and Grade
+        Task task1 = new Task("Finish Math homework", LocalDate.now().plusDays(2), false);
+        Grade grade1 = new Grade("Math", "Algebra test", 85);
 
-        Grade [] grades;
-        Student student1 = new Student();
-        student1.setName("John");
-        student1.setGrade(78);
+        // Create Student with Task + Grade
+        Student student = new Student(1, "Bless Teta",
+                Arrays.asList(grade1),
+                Arrays.asList(task1));
 
+        // Save to JSON
+        FileStorage.saveStudents(List.of(student));
+        System.out.println("✅ Student data saved!");
+
+        // Load from JSON
+        List<Student> loaded = FileStorage.loadStudents();
+        loaded.forEach(s -> {
+            System.out.println("📌 Student: " + s.getName());
+            System.out.println("   Grades: " + s.getGrades().size());
+            System.out.println("   Tasks: " + s.getTasks().size());
+        });
     }
-    }
+}
