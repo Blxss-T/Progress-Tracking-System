@@ -16,14 +16,17 @@ public class Student {
 
     public Student() {}
 
-    public Student(String name, String email, LocalDate dob, Grade[] grades, int ID,Task [] tasks) {
+    public Student(String name, String email, LocalDate dob, Grade[] grades, int ID, Task[] tasks) {
         this.name = name;
         this.email = email;
         this.dob = dob;
-        this.grades = new ArrayList<>();
-        this.tasks = new ArrayList<>();
         this.ID = ID;
+        this.grades = new ArrayList<>();
+        if (grades != null) Collections.addAll(this.grades, grades);
+        this.tasks = new ArrayList<>();
+        if (tasks != null) Collections.addAll(this.tasks, tasks);
     }
+
 
     public String getName() {
         return name;
@@ -140,5 +143,17 @@ public class Student {
         }
         return pending;
     }
+    @Override
+    public String toString() {
+        return "Student{" +
+                "name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", dob=" + dob +
+                ", ID=" + ID +
+                ", grades=" + grades +
+                ", tasks=" + tasks +
+                '}';
+    }
+
 
 }
