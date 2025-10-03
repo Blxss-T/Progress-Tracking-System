@@ -109,6 +109,11 @@ public class Student {
             }
         }
     }
+    public ArrayList<Task> getCompletedTasks() {
+        return tasks.stream()
+                .filter(Task::isCompleted)
+                .collect(Collectors.toCollection(ArrayList::new));
+    }
     public boolean deleteTask(String taskTitle) {
         for (int i = 0; i < tasks.size(); i++) {
             if (tasks.get(i).getDescription().equalsIgnoreCase(taskTitle)) {
