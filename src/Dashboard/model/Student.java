@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.stream.Collectors;
 
 public class Student {
     private String name;
@@ -112,6 +113,11 @@ public class Student {
     public ArrayList<Task> getCompletedTasks() {
         return tasks.stream()
                 .filter(Task::isCompleted)
+                .collect(Collectors.toCollection(ArrayList::new));
+    }
+    public ArrayList<Task> getPendingTasks() {
+        return tasks.stream()
+                .filter(t -> !t.isCompleted())
                 .collect(Collectors.toCollection(ArrayList::new));
     }
     public boolean deleteTask(String taskTitle) {
