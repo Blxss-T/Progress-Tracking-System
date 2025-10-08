@@ -1,12 +1,14 @@
 package Dashboard.model;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.stream.Collectors;
 
-public class Student {
+public class Student implements Serializable {
+    private static final long serialVersionUID = 1L;
     private String name;
     private String email;
     private LocalDate dob;
