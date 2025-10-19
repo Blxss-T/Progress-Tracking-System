@@ -39,7 +39,6 @@ public class Account {
         return "Account{" +
                 "userName='" + userName + '\'' +
                 ", passwordHash='" + passwordHash + '\'' +
-
-
+                ", student=" + student +
     }
 }
