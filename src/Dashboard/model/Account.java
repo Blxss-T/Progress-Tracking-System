@@ -40,5 +40,6 @@ public class Account {
                 "userName='" + userName + '\'' +
                 ", passwordHash='" + passwordHash + '\'' +
                 ", student=" + student +
+                '}';
     }
 }
