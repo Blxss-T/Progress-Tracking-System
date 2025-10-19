@@ -38,6 +38,8 @@ public class Account {
     public String toString() {
         return "Account{" +
                 "userName='" + userName + '\'' +
+                ", passwordHash='" + passwordHash + '\'' +
+
 
     }
 }
