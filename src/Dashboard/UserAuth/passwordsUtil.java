@@ -6,6 +6,7 @@ import java.util.Base64;
 
 public class passwordsUtil {
     SecureRandom sr= new SecureRandom();
-    byte[] salt= new byte[]
+    byte[] salt= new byte[16];
+    sr.nextBytes(salt);
 
 }
