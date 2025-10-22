@@ -37,4 +37,11 @@ public user(){}
     public void setPassword(String password) {
         this.password = password;
     }
+
+    public LocalDate getDob() {
+        return dob;
+    }
+
+
+
 }
