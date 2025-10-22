@@ -20,4 +20,13 @@ public user(){}
     }
     public String getNames(){
     return this.names;
-    }}
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+}
