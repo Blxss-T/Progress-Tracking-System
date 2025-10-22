@@ -45,5 +45,8 @@ public user(){}
     public void setDob(LocalDate dob) {
         this.dob = dob;
     }
+    public String getMaskedPassword(){
+    return "*" .repeat(password.length());
+    }
 
 }
