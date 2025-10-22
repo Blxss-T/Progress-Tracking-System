@@ -8,7 +8,7 @@ public class FileStorage {
     public static void saveStudents(ArrayList<Student> students, String filename) {
         try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(filename))) {
             out.writeObject(students);
-            System.out.println("✅ Students saved successfully to " + filename);
+            System.out.println(" Students saved successfully to " + filename);
         } catch (IOException e) {
             System.err.println("⚠️ Error saving students: " + e.getMessage());
         }
