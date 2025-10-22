@@ -1,5 +1,21 @@
 package Dashboard.UserAuth;
 
-public class user {
+import java.time.LocalDate;
 
+public class user {
+private String names;
+private String email;
+private String password;
+private LocalDate dob;
+
+public user(){}
+    public user(String name, String gmail,String password,LocalDate date){
+    this.names=name;
+    this.email=gmail;
+    this.password=password;
+    this.dob=date;
+    }
+    public void setNames(String names){
+    this.names=names;
+    }
 }
